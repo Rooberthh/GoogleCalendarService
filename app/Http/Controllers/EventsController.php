@@ -21,7 +21,7 @@
 
         public function index()
         {
-            return Event::get();
+                return Event::get();
         }
 
         public function store(Request $request)
@@ -35,7 +35,7 @@
             $event = Event::create([
                 'name' => $request->get('name'),
                 'startDateTime' => Carbon::parse($request->get('startDateTime')),
-                'endDateTime' => Carbon::parse($request->get('startDateTime')),
+                'endDateTime' => Carbon::parse($request->get('endDateTime')),
             ]);
 
             return response(json_encode($event), 201);
