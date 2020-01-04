@@ -20,4 +20,6 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->post('events',  ['uses' => 'EventsController@store']);
     $router->patch('events/{id}',  ['uses' => 'EventsController@update']);
     $router->delete('events/{id}',  ['uses' => 'EventsController@destroy']);
+
+    $router->get('events/frequent',  ['uses' => 'FrequentEventsController@index']);
 });
