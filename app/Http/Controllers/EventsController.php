@@ -21,7 +21,10 @@
 
         public function index()
         {
-                return Event::get();
+            $firstOfWeek = Carbon::now()->startOfWeek()->subDay();
+            $endOfWeek = Carbon::now()->endOfWeek()->subDay();
+
+            return Event::get($firstOfWeek, $endOfWeek);
         }
 
         public function store(Request $request)
