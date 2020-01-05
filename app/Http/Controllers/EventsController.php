@@ -21,10 +21,19 @@
 
         public function index()
         {
-            $firstOfWeek = Carbon::now()->startOfWeek()->subDay();
-            $endOfWeek = Carbon::now()->endOfWeek()->subDay();
+            $today = Carbon::now();
+            $from = null;
+            $to = null;
 
-            return Event::get($firstOfWeek, $endOfWeek);
+            if($today->dayOfWeek == Carbon::SUNDAY){
+                $from = Carbon::now()->startOfDay();
+                $to = Carbon::now()->addWeek()->endOfWeek();
+            } else {
+                $from = Carbon::now()->startOfWeek()->subDay();
+                $to = Carbon::now()->endOfWeek()->subDay();
+            }
+
+            return Event::get($from, $to);
         }
 
         public function store(Request $request)
