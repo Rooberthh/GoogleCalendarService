@@ -22,4 +22,5 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->delete('events/{id}',  ['uses' => 'EventsController@destroy']);
 
     $router->get('events/frequent',  ['uses' => 'FrequentEventsController@index']);
+    $router->get('events/top',  ['uses' => 'TopWeeklyEventsController@index']);
 });
