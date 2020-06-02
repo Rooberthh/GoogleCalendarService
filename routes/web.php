@@ -23,4 +23,6 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
     $router->get('events/frequent',  ['uses' => 'FrequentEventsController@index']);
     $router->get('events/top',  ['uses' => 'TopWeeklyEventsController@index']);
+
+    $router->get('jobs/summary',  ['uses' => 'AcitivtySummaryController@index']);
 });
